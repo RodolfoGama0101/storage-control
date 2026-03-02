@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: storage-control
+  profiles:
+    active: @profileActive@
