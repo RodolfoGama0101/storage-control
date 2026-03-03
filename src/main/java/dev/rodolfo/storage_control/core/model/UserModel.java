@@ -9,9 +9,13 @@ public class UserModel {
 
     private Long id;
 
+    private Long companyId;
+
     private String name;
 
     private String email;
 
-    private String password_hash;
+    private String passwordHash;
+
+    private String createdAt;
 }
