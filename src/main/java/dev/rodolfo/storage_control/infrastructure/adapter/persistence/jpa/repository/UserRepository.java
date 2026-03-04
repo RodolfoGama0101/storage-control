@@ -4,12 +4,12 @@ import dev.rodolfo.storage_control.core.model.UserModel;
 import dev.rodolfo.storage_control.core.ports.out.IUserRepositoryPort;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.UserJpaEntity;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.mapper.UserMapper;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Component
 public class UserRepository implements IUserRepositoryPort {
 
     private final IUserJpaRepository userJpaRepository;

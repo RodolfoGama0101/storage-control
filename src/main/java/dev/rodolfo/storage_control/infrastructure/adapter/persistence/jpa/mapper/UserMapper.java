@@ -4,8 +4,6 @@ import dev.rodolfo.storage_control.core.model.UserModel;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.UserJpaEntity;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
 public class UserMapper {
 

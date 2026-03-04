@@ -3,6 +3,8 @@ package dev.rodolfo.storage_control.core.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class UserModel {
@@ -17,5 +19,5 @@ public class UserModel {
 
     private String passwordHash;
 
-    private String createdAt;
+    private LocalDateTime createdAt;
 }

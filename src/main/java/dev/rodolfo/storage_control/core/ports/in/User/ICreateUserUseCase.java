@@ -4,5 +4,5 @@ import dev.rodolfo.storage_control.core.model.UserModel;
 
 public interface ICreateUserUseCase {
 
-    UserModel save(UserModel user);
+    UserModel save(UserModel user, String cnpj);
 }
