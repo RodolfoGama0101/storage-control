@@ -1,6 +1,6 @@
 package dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.mapper;
 
-import dev.rodolfo.storage_control.core.model.UserModel;
+import dev.rodolfo.storage_control.core.model.user.UserModel;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.UserJpaEntity;
 import org.springframework.stereotype.Component;
 

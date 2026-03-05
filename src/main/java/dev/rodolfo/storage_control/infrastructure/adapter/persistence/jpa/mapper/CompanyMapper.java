@@ -1,6 +1,6 @@
 package dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.mapper;
 
-import dev.rodolfo.storage_control.core.model.CompanyModel;
+import dev.rodolfo.storage_control.core.model.company.CompanyModel;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.CompanyJpaEntity;
 
 public class CompanyMapper {
@@ -11,10 +11,10 @@ public class CompanyMapper {
         if (company == null) return null;
 
         return new CompanyJpaEntity(
-            company.getId(),
-            company.getCnpj(),
-            company.getName(),
-            company.getCreatedAt()
+                company.getId(),
+                company.getName(),
+                company.getCnpj(),
+                company.getCreatedAt()
         );
     }
 

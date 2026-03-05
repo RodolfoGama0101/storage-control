@@ -1,4 +1,4 @@
-package dev.rodolfo.storage_control.core.model;
+package dev.rodolfo.storage_control.core.model.company;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,17 +7,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class UserModel {
-
+public class CompanyModel {
     private Long id;
-
-    private Long companyId;
 
     private String name;
 
-    private String email;
-
-    private String passwordHash;
+    private String cnpj;
 
     private LocalDateTime createdAt;
 }

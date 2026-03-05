@@ -1,4 +1,4 @@
-package dev.rodolfo.storage_control.core.model;
+package dev.rodolfo.storage_control.core.model.item;
 
 import lombok.Builder;
 import lombok.Data;
