@@ -11,25 +11,27 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "tb_user")
-public class UserJpaEntity {
+@Table(name = "tb_item")
+public class ItemJpaEntity {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "company_id")
     private Long companyId;
 
+    @Column(name = "category_id")
+    private Long categoryId;
+
+    @Column(name = "sku")
+    private String sku;
+
     @Column(name = "name")
     private String name;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password_hash")
-    private String passwordHash;
+    @Column(name = "current_quantity")
+    private Integer currentQuantity;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

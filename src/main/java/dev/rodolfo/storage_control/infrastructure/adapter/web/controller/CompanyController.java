@@ -23,7 +23,7 @@ public class CompanyController {
     }
 
     @PostMapping(path = "/v1/create")
-    public ResponseEntity<?> createCompany(
+    public ResponseEntity<CompanyModel> createCompany(
             @Valid @RequestBody CompanyViewModel viewModel
     ) {
         CompanyModel companyModel = CompanyModel.builder()

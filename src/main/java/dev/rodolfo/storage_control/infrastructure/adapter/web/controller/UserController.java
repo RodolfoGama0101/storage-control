@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/v1/create")
-    public ResponseEntity<?> createUser(
+    public ResponseEntity<UserModel> createUser(
             @RequestBody @Valid UserViewModel viewModel
     ) {
         UserModel userModel = UserModel.builder()

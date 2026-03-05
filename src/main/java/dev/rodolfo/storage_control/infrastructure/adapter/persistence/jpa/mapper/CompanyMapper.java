@@ -5,17 +5,17 @@ import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity
 
 public class CompanyMapper {
 
-    public CompanyMapper() {}
+    public CompanyMapper() { }
 
     public static CompanyJpaEntity toJpaEntity(CompanyModel company) {
         if (company == null) return null;
 
-        return new CompanyJpaEntity(
-                company.getId(),
-                company.getName(),
-                company.getCnpj(),
-                company.getCreatedAt()
-        );
+        return CompanyJpaEntity.builder()
+                .id(company.getId())
+                .cnpj(company.getCnpj())
+                .name(company.getName())
+                .createdAt(company.getCreatedAt())
+                .build();
     }
 
     public static CompanyModel toCoreEntity(CompanyJpaEntity company) {
