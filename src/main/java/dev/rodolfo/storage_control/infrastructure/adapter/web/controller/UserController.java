@@ -1,7 +1,7 @@
 package dev.rodolfo.storage_control.infrastructure.adapter.web.controller;
 
-import dev.rodolfo.storage_control.core.model.UserModel;
-import dev.rodolfo.storage_control.core.ports.in.User.ICreateUserUseCase;
+import dev.rodolfo.storage_control.core.model.user.UserModel;
+import dev.rodolfo.storage_control.core.ports.in.user.CreateUserUseCase;
 import dev.rodolfo.storage_control.infrastructure.adapter.web.viewmodel.UserViewModel;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -16,23 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Usuários", description = "Operações relacionadas a usuários")
 public class UserController {
 
-    private final ICreateUserUseCase createUserUseCase;
+    private final CreateUserUseCase createUserUseCase;
 
-    public UserController(ICreateUserUseCase createUserUseCase) {
+    public UserController(CreateUserUseCase createUserUseCase) {
         this.createUserUseCase = createUserUseCase;
     }
 
-    @PostMapping(path = "/create")
-    public ResponseEntity<?> createUser(
+    @PostMapping(path = "/v1/create")
+    public ResponseEntity<UserModel> createUser(
             @RequestBody @Valid UserViewModel viewModel
     ) {
         UserModel userModel = UserModel.builder()
                 .name(viewModel.name())
                 .email(viewModel.email())
-                .passwordHash(viewModel.password())
                 .build();
 
-        UserModel createdUser = createUserUseCase.save(userModel, viewModel.companyCnpj());
+        UserModel createdUser = createUserUseCase.save(userModel, viewModel.companyCnpj(), viewModel.password());
 
         return ResponseEntity.ok(createdUser);
     }

@@ -1,7 +1,7 @@
-package dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.repository;
+package dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.repository.company;
 
-import dev.rodolfo.storage_control.core.model.CompanyModel;
-import dev.rodolfo.storage_control.core.ports.out.ICompanyRepositoryPort;
+import dev.rodolfo.storage_control.core.model.company.CompanyModel;
+import dev.rodolfo.storage_control.core.ports.out.company.CompanyRepositoryPort;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.CompanyJpaEntity;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.mapper.CompanyMapper;
 import org.springframework.stereotype.Component;
@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class CompanyRepository implements ICompanyRepositoryPort {
+public class CompanyRepository implements CompanyRepositoryPort {
 
-    private final ICompanyJpaRepository repository;
+    private final CompanyJpaRepository repository;
 
-    public CompanyRepository(ICompanyJpaRepository repository) {
+    public CompanyRepository(CompanyJpaRepository repository) {
         this.repository = repository;
     }
 
@@ -26,8 +26,10 @@ public class CompanyRepository implements ICompanyRepositoryPort {
     }
 
     @Override
-    public CompanyModel save(CompanyModel coreEntity) {
-        return null;
+    public CompanyModel save(CompanyModel model) {
+        CompanyJpaEntity entity = CompanyMapper.toJpaEntity(model);
+
+        return CompanyMapper.toCoreEntity(repository.save(entity));
     }
 
     @Override

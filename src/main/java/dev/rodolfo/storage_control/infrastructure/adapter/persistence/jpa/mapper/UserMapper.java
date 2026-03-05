@@ -1,26 +1,25 @@
 package dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.mapper;
 
-import dev.rodolfo.storage_control.core.model.UserModel;
+import dev.rodolfo.storage_control.core.model.user.UserModel;
 import dev.rodolfo.storage_control.infrastructure.adapter.persistence.jpa.entity.UserJpaEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
 
-    public UserMapper() {
-    }
+    public UserMapper() { }
 
     public static UserJpaEntity toJpaEntity(UserModel user) {
         if (user == null) return null;
 
-        return new UserJpaEntity(
-            user.getId(),
-            user.getCompanyId(),
-            user.getName(),
-            user.getEmail(),
-            user.getPasswordHash(),
-            user.getCreatedAt()
-        );
+        return UserJpaEntity.builder()
+                .id(user.getId())
+                .companyId(user.getCompanyId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .passwordHash(user.getPasswordHash())
+                .createdAt(user.getCreatedAt())
+                .build();
     }
 
     public static UserModel toCoreEntity(UserJpaEntity userJpaEntity) {
