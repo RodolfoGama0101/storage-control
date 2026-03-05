@@ -6,6 +6,8 @@ import dev.rodolfo.storage_control.core.ports.in.User.ICreateUserUseCase;
 import dev.rodolfo.storage_control.core.ports.out.ICompanyRepositoryPort;
 import dev.rodolfo.storage_control.core.ports.out.IUserRepositoryPort;
 
+import java.time.LocalDateTime;
+
 public class UserService implements ICreateUserUseCase {
 
     private final IUserRepositoryPort repository;
@@ -24,6 +26,7 @@ public class UserService implements ICreateUserUseCase {
         );
 
         user.setCompanyId(company.getId());
+        user.setCreatedAt(LocalDateTime.now());
 
         return repository.save(user);
     }

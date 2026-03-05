@@ -27,10 +27,12 @@ public class UserMapper {
         if (userJpaEntity == null) return null;
 
         return UserModel.builder()
-            .id(userJpaEntity.getId())
-            .name(userJpaEntity.getName())
-            .email(userJpaEntity.getEmail())
-            .passwordHash(userJpaEntity.getPasswordHash())
-            .build();
+                .id(userJpaEntity.getId())
+                .companyId(userJpaEntity.getCompanyId())
+                .name(userJpaEntity.getName())
+                .email(userJpaEntity.getEmail())
+                .passwordHash(userJpaEntity.getPasswordHash())
+                .createdAt(userJpaEntity.getCreatedAt())
+                .build();
     }
 }
